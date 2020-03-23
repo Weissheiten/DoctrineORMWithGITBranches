@@ -12,7 +12,7 @@ Both developers are going to use a personal environment hosted on their local co
 
 Both developers have prepared a common setup from where to start.
 
-## Kassandra writes the User class
+## Feature branches
 Kassandra starts by cloning the repository at https://github.com/Weissheiten/DoctrineORMWithGITBranches.git and checks out the master branch.
 
 ```git checkout master```
@@ -30,9 +30,25 @@ Mike does the same and introduces his own feature branch with:
 Both developers now work on their own feature branch, making changes and committing them. This does not interfer with any of the work the other developer does. Kassandra can concentrate on Users, while Mike can concentrate on the Products.
 
 Both developers can use common doctrine commands to create their own database structure while developing like:
+
 ``` vendor/bin/doctrine orm:schema-tool:update --force --dump-sql ```
+
+## Merging a feature into master
+After Kassandras feature branch is ready it can be merged into master with the command 
+
+``` git merge origin/IntroduceUser```
+
+In the same way the feature branch of Mike can be merged into master via 
+
+``` git merge origin/IntorduceProduct```
+
+Afterwards the usual doctrine command for updating the database can be used to reflect the changes of both developers in the database:
+
+``` vendor/bin/doctrine orm:schema-tool:update --force --dump-sql ``` 
 
 ## Links
 
 Doctrine ORM - Getting started:
 https://www.doctrine-project.org/projects/doctrine-orm/en/current/tutorials/getting-started.html
+
+Feature branches GIT: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
